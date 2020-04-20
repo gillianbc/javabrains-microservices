@@ -1,0 +1,16 @@
+.idea/
+.mvn
+.settings
+*/gradlew
+*/gradle/
+*/gradlew.bat
+*/.gradle/
+*/build/
+.gradle/
+*.log
+*/.classpath
+*/.project
+*/.settings
+*/.vscode
+*/bin
+*/.idea
