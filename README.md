@@ -11,3 +11,4 @@ Three separate Spring Boot Applications.
 * the movie info e.g. http://localhost:8082/movies/1
 * the ratings e.g. http://localhost:8083/ratings/1
 
+This is where I have got to: https://youtu.be/UBnSkjsJ-ow?t=2
