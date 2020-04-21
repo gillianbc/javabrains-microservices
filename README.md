@@ -15,7 +15,7 @@ Three separate Spring Boot Applications.
 
 When designing endpoints, NEVER have an array of objects as the return type.  It's possible, but bad practice.  If you want to add in some other field later, outside of the array, e.g. a count, then you will cause a breaking change in all the consumer code.  
 Always have an enclosing object e.g.
-`{
+```{
     "userId": "1",
     "catalogItemList": [
         {
@@ -30,7 +30,7 @@ Always have an enclosing object e.g.
         }
     ]
 }
-.
+```
 
 # Copies of Classes - Not Dependencies
 
