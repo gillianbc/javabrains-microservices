@@ -11,4 +11,11 @@ Three separate Spring Boot Applications.
 * the movie info e.g. http://localhost:8082/movies/1
 * the ratings e.g. http://localhost:8083/ratings/1
 
-This is where I have got to: https://youtu.be/UBnSkjsJ-ow?t=2
+# Array Responses
+
+When designing endpoints, NEVER have an array of objects as the return type.  It's possible, but bad practice.  If you want to add in some other field later, outside of the array, e.g. a count, then you will cause a breaking change in all the consumer code.  
+Always have an enclosing element, just like GraphQL does with the *data* element.
+
+# Copies of Classes - Not Dependencies
+
+In a microservice architecture, it IS appropriate to copy a class into another application rather than having a dependency.  The class can be stripped down to what's actually necessary in the consuming class and changes to the original don't necessarily affect the copy.  
