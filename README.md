@@ -4,6 +4,8 @@ Javabrains - https://github.com/koushikkothagal/spring-boot-microservices-worksh
 
 https://www.youtube.com/watch?v=y8IQb4ofjDo&list=PLqq-6Pq4lTTZSKAFG6aCDVDP86Qx4lNas
 
+# MICROSERVICES LEVEL 1 - COMMUNICATION AND SERVICE DISCOVERY
+
 # Overview
 
 Four separate Spring Boot Applications.
@@ -77,13 +79,13 @@ To register a client with the discovery server, in the client application, add t
 You can also annotate the main app class with @EnableEurekaClient, but this is no longer mandatory.
 
 ### How does the eureka client find the Eureka server?
-It looks on the default port first, 8671.  If you're not using the default port, then you have to tell the client where to look for the eureka server via property ???
+It looks on the default port first, 8671.  If you're not using the default port, then you have to tell the client where to look for the eureka server via property XXX (probably eureka.server.port)
 
 ### Consuming a Discovered Service
 * Annotate your RestTemplate bean with @LoadBalanced
-* In the url of the RestTemplate method, sub in the exposed app name (as seen in the discovery server UI http://localhost:8761/.  You can also see it in the log as the app starts up)
+* In the url of the RestTemplate method, sub in the exposed app name (as seen in the Eureka discovery server UI http://localhost:8761/.  You can also see it in the log as the app starts up)
 
-e.g. change this 
+e.g. change this:
 ```
 restTemplate.getForObject("http://localhost:8083/ratings/users/" + userId, UserRatings.class);
 ```
@@ -91,3 +93,21 @@ to this:
 ```
 restTemplate.getForObject("http://MOVIE-RATINGS-SERVICE/ratings/users/" + userId, UserRatings.class);
 ```
+
+### Load Balancing
+When you run a jar file, e.g.  java -jar my-application-0.0.1-SNAPSHOT.jar, you can override the server.port that is in that jar’s application.properties:
+```
+java -Dserver.port=8201 -jar my-application-0.0.1-SNAPSHOT.jar
+```
+
+We could start 3 instances of the movie info service on different ports and the Eureka discovery server UI http://localhost:8761/ would show 3 as UP.
+
+### What Services Have Been Discovered?
+
+There is a DiscoveryClient bean created by Eureka.  You can autowire this and call it's getInstances() method.  You then have access to the individual instances e.g. for load balancing details, but best to let Spring manage this for you.
+
+### Heartbeats and Server Down
+The discovery server periodically checks if each service is still up. 
+If the discovery server itself goes down, then Spring will use the cached location of the service. 
+
+# MICROSERVICES LEVEL 2 - FAULT TOLERANCE AND RESILIENCE
