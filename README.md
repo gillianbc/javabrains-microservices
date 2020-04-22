@@ -58,7 +58,7 @@ Spring Cloud uses client-side discovery
 Netflix have created the following microservice open-source architectures:
 * Eureka (service discovery)
 * Ribbon (load balancing)
-* Hysterix (not sure what this is yet, but it sounds hysterical)
+* Hysterix (long lost sister of Asterix the Gaul)
 * Zuul (wasn't this the monster on top of the skyscraper in Ghostbusters?)
 
 but Spring abstracts these away for us.
@@ -78,3 +78,16 @@ You can also annotate the main app class with @EnableEurekaClient, but this is n
 
 ### How does the eureka client find the Eureka server?
 It looks on the default port first, 8671.  If you're not using the default port, then you have to tell the client where to look for the eureka server via property ???
+
+### Consuming a Discovered Service
+* Annotate your RestTemplate bean with @LoadBalanced
+* In the url of the RestTemplate method, sub in the exposed app name (as seen in the discovery server UI http://localhost:8761/.  You can also see it in the log as the app starts up)
+
+e.g. change this 
+```
+restTemplate.getForObject("http://localhost:8083/ratings/users/" + userId, UserRatings.class);
+```
+to this:
+```
+restTemplate.getForObject("http://MOVIE-RATINGS-SERVICE/ratings/users/" + userId, UserRatings.class);
+```
