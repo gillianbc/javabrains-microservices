@@ -21,7 +21,10 @@ If you're calling another API and unmarshalling using RestTemplate, make sure yo
 
 We can use RestTemplate to call another API.  As we don't want to create a new RestTemplate every time, we can annotate a method that returns us a new RestTemplate with `@Bean`
 
-Note that RestTemplate is deprecated.  We should use WebClient which is asynchcronous.
+Note that RestTemplate is deprecated.  We should use WebClient which is asynchcronous i.e. reactive.  You can select WebClient via the Spring initializr or add it later.  This sample project doesn't use WebClient - but I have shown how to use that in a branch https://github.com/gillianbc/javabrains-microservices/blob/webclient/movie-catalog-service/movie-catalog-service/src/main/java/com/gillianbc/moviecatalogservice/resource/MovieCatalogResource.java
+
+
+
 
 
 ```
