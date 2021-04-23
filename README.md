@@ -14,6 +14,14 @@ Four separate Spring Boot Applications.
 * the ratings e.g. http://localhost:8083/ratings/1
 * the discovery server http://localhost:8761
 
+# Notes
+The port is configure in `application.properties` - by default it is 8080.
+
+```
+server.port=8081
+spring.application.name=movie-catalog-service
+```
+
 # Array Responses
 
 When designing REST endpoints, *NEVER* have an array of objects as the return type.  It's possible, but bad practice.  If you want to add in some other field later, outside of the array, e.g. a count, then you will cause a breaking change in all the consumer code.  
