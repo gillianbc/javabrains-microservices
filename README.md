@@ -17,6 +17,10 @@ Four separate Spring Boot Applications.
 # Notes
 The port is configure in `application.properties` - by default it is 8080.
 
+If you're calling another API and unmarshalling using RestTemplate, make sure your target class has the default constructor.
+As we don't want to create a new RestTemplate every time, we can annotate a method that returns us a new RestTemplate with `@Bean`
+
+
 ```
 server.port=8081
 spring.application.name=movie-catalog-service
