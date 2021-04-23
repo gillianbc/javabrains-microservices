@@ -18,7 +18,10 @@ Four separate Spring Boot Applications.
 The port is configure in `application.properties` - by default it is 8080.
 
 If you're calling another API and unmarshalling using RestTemplate, make sure your target class has the default constructor.
-As we don't want to create a new RestTemplate every time, we can annotate a method that returns us a new RestTemplate with `@Bean`
+
+We can use RestTemplate to call another API.  As we don't want to create a new RestTemplate every time, we can annotate a method that returns us a new RestTemplate with `@Bean`
+
+Note that RestTemplate is deprecated.  We should use WebClient which is asynchcronous.
 
 
 ```
