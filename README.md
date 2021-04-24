@@ -8,11 +8,15 @@ https://www.youtube.com/watch?v=y8IQb4ofjDo&list=PLqq-6Pq4lTTZSKAFG6aCDVDP86Qx4l
 
 # Overview
 
-Four separate Spring Boot Applications.
-* the catalog - e.g. http://localhost:8081/catalog/1
+Four separate Spring Boot Applications.  
+* the catalog - e.g. http://localhost:8081/catalog/1     
 * the movie info e.g. http://localhost:8082/movies/1
 * the ratings e.g. http://localhost:8083/ratings/1
 * the discovery server http://localhost:8761
+
+The catalog is the daddy - it shows the name/desc of favourite films for a user along with his ratings.  (I only have user id 1)
+The name/desc of a film comes from the movie info microservice.  (Only ids 1 and 2 available)
+The rating of a film comes from the ratings microservice.  (Only ids 1 and 2 available)
 
 # Notes
 The port is configure in `application.properties` - by default it is 8080.
