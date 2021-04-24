@@ -1,4 +1,4 @@
-package com.gillianbc.moviecatalogservice.resource;
+package com.gillianbc.moviecatalogservice.controller;
 
 import com.gillianbc.moviecatalogservice.model.Catalog;
 import com.gillianbc.moviecatalogservice.model.CatalogItem;
@@ -10,14 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/catalog")
-public class MovieCatalogResource {
+public class MovieCatalogController {
   @Autowired
   RestTemplate restTemplate;
 

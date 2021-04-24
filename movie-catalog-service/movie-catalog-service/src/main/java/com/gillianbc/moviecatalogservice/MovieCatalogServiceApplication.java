@@ -11,6 +11,9 @@ import org.springframework.web.client.RestTemplate;
 @EnableEurekaClient
 public class MovieCatalogServiceApplication {
 
+	// The @LoadBalanced annotation allows us to consume a discovered service using our RestTemplate
+	// Services will automatically be discovered by Spring on the default Eureka Discovery Server port
+	// of 8761
 	@Bean
 	@LoadBalanced
 	public RestTemplate makeRestTemplateBean(){

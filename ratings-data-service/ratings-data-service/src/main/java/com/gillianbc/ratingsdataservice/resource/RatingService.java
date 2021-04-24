@@ -22,7 +22,10 @@ public class RatingService {
   @RequestMapping("/users/{userId}")
   public UserRatings getUserRatings(@PathVariable("userId") String userId){
     UserRatings userRatings = new UserRatings();
-    final List<Rating> ratingList = Arrays.asList(new Rating("1", 4), new Rating("2", 3));
+    final List<Rating> ratingList =
+            Arrays.asList(
+                    new Rating("1", 4),
+                    new Rating("2", 3));
     userRatings.setUserRatings(ratingList);
     return userRatings;
 
