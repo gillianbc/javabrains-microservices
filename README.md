@@ -21,10 +21,7 @@ If you're calling another API and unmarshalling using RestTemplate, make sure yo
 
 We can use RestTemplate to call another API.  As we don't want to create a new RestTemplate every time, we can annotate a method that returns us a new RestTemplate with `@Bean`
 
-Note that RestTemplate is deprecated.  We should use WebClient which is asynchcronous i.e. reactive.  You can select WebClient via the Spring initializr or add it later.  This sample project doesn't use WebClient - but I have shown how to use that in a branch https://github.com/gillianbc/javabrains-microservices/blob/webclient/movie-catalog-service/movie-catalog-service/src/main/java/com/gillianbc/moviecatalogservice/resource/MovieCatalogResource.java
-
-
-
+Note that RestTemplate is deprecated.  We should use WebClient which is asynchcronous i.e. reactive or synchronous (if we use block()).  You can select WebClient via the Spring initializr or add it later.  This sample project doesn't use WebClient - but I have shown how to use that in a branch https://github.com/gillianbc/javabrains-microservices/blob/webclient/movie-catalog-service/movie-catalog-service/src/main/java/com/gillianbc/moviecatalogservice/resource/MovieCatalogResource.java
 
 
 ```
@@ -32,7 +29,7 @@ server.port=8081
 spring.application.name=movie-catalog-service
 ```
 
-# Array Responses
+# Array Responses are Bad
 
 When designing REST endpoints, *NEVER* have an array of objects as the return type.  It's possible, but bad practice.  If you want to add in some other field later, outside of the array, e.g. a count, then you will cause a breaking change in all the consumer code.  
 Always have an enclosing object e.g.
@@ -61,7 +58,7 @@ In a microservice architecture, it IS appropriate to copy a pojo class into anot
 # Discovery Server
 
 ## Client-side Discovery
-
+The discovery service is like a phonebook:
 * Client asks the Discovery Server, where can I find service X?
 * Discovery Server responds with the url of service X
 * Client then calls service X on that url
@@ -71,7 +68,7 @@ Spring Cloud uses client-side discovery
 ## Server-side Discovery
 
 * Client tells the Discovery Server he has something for service X
-* Discovery Server passes it on to service X
+* Discovery Server passes it on to service X and returns the response to the client
 
 ## Netflix Open Source
 
@@ -85,15 +82,31 @@ but Spring abstracts these away for us.
 
 ## Eureka Server
 
-There can be multiple eureka servers, but we only have one so we must tell it that we don't want it to register itself and we don't want it to fetch the registry.  It has the only copy of the registry.
+Create a Eureka Server via the Spring Initializr - select Eureka Server.
+```
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+    </dependency>
+```
+
+There can be multiple eureka servers, but we only have one so we must tell it that we don't want it to register itself and we don't want it to fetch the registry.  It owns the only copy of the registry.
 In application.properties, we set:
 ``` 
 eureka.client.register-with-eureka=false
 eureka.client.fetch-registry=false
 ```
+Java 11 may throw up some JAXB errors - see https://youtu.be/GTM2J0nYmbs?t=320
 
 ## Eureka Client
-To register a client with the discovery server, in the client application, add the Eureka Discovery Client to the pom.xml (see https://start.spring.io/) and add property spring.application.name.  Without an application name, it will show as UNKNOWN in the discovery server UI http://localhost:8761/
+To register a client with the discovery server, in the client application, add the Eureka Discovery Client to the pom.xml (see https://start.spring.io/) 
+```
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+    </dependency>
+```
+Also add property spring.application.name.  Without an application name, it will show as UNKNOWN in the discovery server UI http://localhost:8761/
 You can also annotate the main app class with @EnableEurekaClient, but this is no longer mandatory.
 
 ### How does the eureka client find the Eureka server?
