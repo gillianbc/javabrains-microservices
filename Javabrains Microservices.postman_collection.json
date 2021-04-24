@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "6cce1481-1bca-4489-bb37-39dbef684d27",
+		"_postman_id": "a67e9b93-3b34-4458-8ad1-0c25c44a0410",
 		"name": "Javabrains Microservices",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,7 +11,16 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:8081/catalog/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"catalog",
+						"1"
+					]
 				}
 			},
 			"response": []

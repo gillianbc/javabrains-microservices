@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/movies")
 public class MovieService {
 
-  @RequestMapping("/{movieId}")
-  public Movie getMovieInfo(@PathVariable("movieId") String movieId){
-    if ("1".equals(movieId))
-      return new Movie(movieId, "Fried Green Tomatoes at the Whistlestop Cafe");
-    if ("2".equals(movieId))
-      return new Movie(movieId, "Shawshank Redemption");
+    @RequestMapping("/{movieId}")
+    public Movie getMovieInfo(@PathVariable("movieId") String movieId){
+        if ("1".equals(movieId))
+            return new Movie(movieId, "Fried Green Tomatoes at the Whistlestop Cafe");
+        if ("2".equals(movieId))
+            return new Movie(movieId, "Shawshank Redemption");
 
-    return new Movie(movieId, "Star Wars");
-  }
+        return new Movie(movieId, "Star Wars");
+    }
 }

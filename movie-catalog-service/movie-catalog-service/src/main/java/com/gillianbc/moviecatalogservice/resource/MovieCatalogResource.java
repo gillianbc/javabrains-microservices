@@ -3,7 +3,6 @@ package com.gillianbc.moviecatalogservice.resource;
 import com.gillianbc.moviecatalogservice.model.Catalog;
 import com.gillianbc.moviecatalogservice.model.CatalogItem;
 import com.gillianbc.moviecatalogservice.model.borrowed.Movie;
-import com.gillianbc.moviecatalogservice.model.borrowed.Rating;
 import com.gillianbc.moviecatalogservice.model.borrowed.UserRatings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
