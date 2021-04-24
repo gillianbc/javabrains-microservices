@@ -135,10 +135,10 @@ We could start 3 instances of the movie info service on different ports and the 
 
 ### What Services Have Been Discovered?
 
-There is a DiscoveryClient bean created by Eureka.  You can autowire this and call it's getInstances() method.  You then have access to the individual instances e.g. for load balancing details, but best to let Spring manage this for you.
+There is a DiscoveryClient bean created by Eureka.  You can autowire this and call it's getInstances() method.  You then have access to the individual instances e.g. for load balancing details, but best to let Spring manage this for you.   https://youtu.be/tG2dA6zyEgM?t=431
 
 ### Heartbeats and Server Down
-The discovery server periodically checks if each service is still up. 
+The discovery server periodically checks if each service is still up. The clients ping the discovery server at regular intervals.
 If the discovery server itself goes down, then Spring will use the cached location of the service. 
 
 # MICROSERVICES LEVEL 2 - FAULT TOLERANCE AND RESILIENCE
