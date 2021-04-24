@@ -4,6 +4,13 @@ Javabrains - https://github.com/koushikkothagal/spring-boot-microservices-worksh
 
 https://www.youtube.com/watch?v=y8IQb4ofjDo&list=PLqq-6Pq4lTTZSKAFG6aCDVDP86Qx4lNas
 
+# Installing and Running the Project
+Clone the repository
+Open as separate Maven projects in Intellij
+Intellij will automatically make you a Spring run configuration
+Run all 4.  
+Go to the UI of the discovery server http://localhost:8761 to see what's up.    
+
 # MICROSERVICES LEVEL 1 - COMMUNICATION AND SERVICE DISCOVERY
 
 # Overview
