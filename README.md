@@ -15,7 +15,9 @@ Four separate Spring Boot Applications.
 * the discovery server http://localhost:8761
 
 The catalog is the daddy - it shows the name/desc of favourite films for a user along with his ratings.  (I only have user id 1)
+
 The name/desc of a film comes from the movie info microservice.  (Only ids 1 and 2 available)
+
 The rating of a film comes from the ratings microservice.  (Only ids 1 and 2 available)
 
 # Notes
