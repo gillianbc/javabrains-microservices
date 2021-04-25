@@ -155,4 +155,3 @@ There is a DiscoveryClient bean created by Eureka.  You can autowire this and ca
 The discovery server periodically checks if each service is still up. The clients ping the discovery server at regular intervals.
 If the discovery server itself goes down, then Spring will use the cached location of the service. 
 
-# MICROSERVICES LEVEL 2 - FAULT TOLERANCE AND RESILIENCE
