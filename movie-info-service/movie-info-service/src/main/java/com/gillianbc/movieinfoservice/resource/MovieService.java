@@ -12,10 +12,10 @@ public class MovieService {
     @RequestMapping("/{movieId}")
     public Movie getMovieInfo(@PathVariable("movieId") String movieId){
         if ("1".equals(movieId))
-            return new Movie(movieId, "Fried Green Tomatoes at the Whistlestop Cafe");
+            return new Movie(movieId, "Fried Green Tomatoes at the Whistlestop Cafe", "A really good film");
         if ("2".equals(movieId))
-            return new Movie(movieId, "Shawshank Redemption");
+            return new Movie(movieId, "Shawshank Redemption", "Steven King at his best");
 
-        return new Movie(movieId, "Star Wars");
+        return new Movie(movieId, "Star Wars", "Default film");
     }
 }

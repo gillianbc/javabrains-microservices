@@ -1,18 +1,20 @@
 package com.gillianbc.ratingsdataservice.model;
 
-import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
+import java.util.List;
+@Data
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserRatings {
   private List<Rating> userRatings;
-
-  public UserRatings() {
-  }
 
   public List<Rating> getUserRatings() {
     return userRatings;
   }
 
-  public void setUserRatings(final List<Rating> userRatings) {
-    this.userRatings = userRatings;
-  }
 }

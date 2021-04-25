@@ -1,46 +1,17 @@
 package com.gillianbc.moviecatalogservice.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Data
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor  // No args constructor is needed for RestTemplate - it will then yse the setters
 public class CatalogItem {
   private String name;
   private String desc;
   private int rating;
 
-  public CatalogItem(final String name, final String desc, final int rating) {
-    this.name = name;
-    this.desc = desc;
-    this.rating = rating;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(final String name) {
-    this.name = name;
-  }
-
-  public String getDesc() {
-    return desc;
-  }
-
-  public void setDesc(final String desc) {
-    this.desc = desc;
-  }
-
-  public int getRating() {
-    return rating;
-  }
-
-  public void setRating(final int rating) {
-    this.rating = rating;
-  }
-
-  @Override
-  public String toString() {
-    return "CatalogItem{" +
-        "name='" + name + '\'' +
-        ", desc='" + desc + '\'' +
-        ", rating=" + rating +
-        '}';
-  }
 }

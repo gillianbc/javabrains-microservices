@@ -28,7 +28,7 @@ public class MovieCatalogController {
     //For each movie, get the additional info
     final List<CatalogItem> catalogItemList = ratings.getUserRatings().stream().map(rating -> {
       Movie movie = restTemplate.getForObject("http://MOVIE-INFO-SERVICE/movies/" + rating.getMovieId(), Movie.class);
-      return new CatalogItem(movie.getName(), "desc", rating.getRating());
+      return new CatalogItem(movie.getName(), movie.getDesc(), rating.getRating());
     }).collect(Collectors.toList());
 
     Catalog catalog = new Catalog();
