@@ -5,8 +5,9 @@ Javabrains - https://github.com/koushikkothagal/spring-boot-microservices-worksh
 https://www.youtube.com/watch?v=y8IQb4ofjDo&list=PLqq-6Pq4lTTZSKAFG6aCDVDP86Qx4lNas
 
 # Installing and Running the Project
-Clone the repository
-Open as separate Maven projects in Intellij
+Clone the repository.
+To open all 4 microservices projects in IntelliJ in one window, open the javabrains-microservices folder.
+Drill down to the pom.xml of each.  Right-click and add as maven project.
 Intellij will automatically make you a Spring run configuration
 Run all 4.  
 Go to the UI of the discovery server http://localhost:8761 to see what's up.    
