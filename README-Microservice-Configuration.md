@@ -108,7 +108,7 @@ You can use "" but they're not necessary around simple strings.  You will need "
 
 # SPRING PROFILES
 A predefined set of configuration properties e.g.
-`application-test.yml` where `dev` is the name we're going to use for a profile.
+`application-dev.yml` where `dev` is the name we're going to use for a profile.
 
 You can set the active profile in the default config file `application.yml` e.g.
 `spring.profiles.active: dev`
